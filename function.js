@@ -84,55 +84,89 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 	);
 
 	const customCSS = `
-	  body {
-	    margin: 0!important
-	  }
+	    body {
+	        margin: 0!important;
+	        min-height: 100vh;
+	        width: 100%;
+	        padding: 0;
+	    }
 	
-	  button#download {
-	    position: fixed;
-	    border-radius: 0.5rem;
-	    font-size: 14px;
-	    font-weight: 600;
-	    line-height: 1.5rem;
-	    color: #0d0d0d;
-	    border: none;
-	    font-family: 'Inter';
-	    padding: 0px 12px;
-	    height: 32px;
-	    background: #ffffff;
-	    top: 8px;
-	    right: 8px;
-	    box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 2.5px rgba(0, 0, 0, 0.1);
-	    cursor: pointer;
-	    z-index: 9999;  /* Ensure button stays on top */
-	    backdrop-filter: blur(4px);  /* Add slight blur behind button */
-	    -webkit-backdrop-filter: blur(4px);
-	    background: rgba(255, 255, 255, 0.9);  /* Make button slightly transparent */
-	  }
+	    .main {
+	        min-height: 100vh;
+	        width: 100%;
+	        position: relative;
+	    }
 	
-	  button#download:hover {
-	    background: rgba(245, 245, 245, 0.95);
-	    box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06), 0 6px 12px -3px rgba(0, 0, 0, 0.1);
-	  }
+	    #content {
+	        min-height: 100vh;
+	        width: 100%;
+	        margin: 0;
+	        padding: 0;
+	    }
 	
-	  button#download.downloading {
-	    color: #ea580c;
-	  }
+	    /* If your background image is applied to a specific div */
+	    .background-container {
+	        min-height: 100vh;
+	        width: 100%;
+	        background-size: cover;
+	        background-position: center;
+	        background-repeat: no-repeat;
+	        margin: 0;
+	        padding: 0;
+	    }
 	
-	  button#download.done {
-	    color: #16a34a;
-	  }
+	    /* Button styles */
+	    button#download {
+	        cursor: pointer;
+	        position: fixed;
+	        right: 4px;
+	        top: 4px;
+	        font-weight: 600;
+	        background-color: #FFFFFF;
+	        box-shadow: 0px 0px 1px rgba(62, 65, 86, 0.24), 0px 4px 8px rgba(62, 65, 86, 0.16);
+	        color: rgba(44, 44, 44, 0.92);
+	        border: 0.5px solid #00000024;
+	        border-radius: 8px;
+	        height: 32px;
+	        padding: 0 12px;
+	        font-size: 0.75rem;
+	        z-index: 999;
+	    }
 	
-	  ::-webkit-scrollbar {
-	    width: 5px;
-	    background-color: rgb(0 0 0 / 8%);
-	  }
+	    button#download:hover {
+	        background-color: rgba(0, 0, 0, 0.05);
+	        box-shadow: 0px 0px 1px rgba(62, 65, 86, 0.32), 0px 4px 8px rgba(62, 65, 86, 0.16);
+	    }
 	
-	  ::-webkit-scrollbar-thumb {
-	    background-color: rgb(0 0 0 / 32%);
-	    border-radius: 4px;
-	  }
+	    .page-break {
+	        page-break-before: always;
+	    }
+	
+	    .avoid-break {
+	        page-break-inside: avoid;
+	    }
+	
+	    /* For images that should cover full page */
+	    img.full-page {
+	        width: 100%;
+	        height: 100vh;
+	        object-fit: cover;
+	        margin: 0;
+	        padding: 0;
+	        display: block;
+	    }
+	
+	    ::-webkit-scrollbar {
+	        width: 5px;
+	        background-color: rgb(0 0 0 / 8%);
+	    }
+	
+	    ::-webkit-scrollbar-thumb {
+	        background-color: rgb(0 0 0 / 32%);
+	        border-radius: 4px;
+	    }
 	`;
+	
 	// HTML THAT IS RETURNED AS A RENDERABLE URL
 	const originalHTML = `
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
