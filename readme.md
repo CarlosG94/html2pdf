@@ -7,4 +7,4 @@ This plugin allows you to preview and save HTML as PDFs.
 2. Then on your layout screen, add a web-embed component and select this column as the source.
 3. Viola!
 
-If you want to level-up your Glide skills for free, head to [Loqode.com](https://loqode.com).  🚀
+If you want to level-up your Glide skills for free, head to   🚀
